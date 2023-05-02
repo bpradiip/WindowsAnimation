@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI Web (West European)";
+  color: #fff;
+  font-size: 45px;
+  overflow: hidden;
+}
+#container {
+  height: 100vh;
+  width: 100%;
+  background: #1560d2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 400px;
+  animation: perspective 1s forwards;
+}
+
+#windows_container {
+ 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  transform: rotateY(-35deg) scale(0.5);
+  transform-style: preserve-3d;
+}
+
+#window {
+  background: #fff;
+  width: 185px;
+  height: 135px;
+  content: "";
+  animation: anim 2s ease;
+  transform-origin: bottom right;
+}
+span {
+  margin-left: 50px;
+  animation: text-anim 1s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+#window:nth-child(1) {
+  animation-delay: 0.1s;
+}
+#window:nth-child(2) {
+  animation-delay: 0.2s;
+}
+#window:nth-child(3) {
+  animation-delay: 0.3s;
+}
+#window:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes anim {
+  0% {
+    transform: rotate(-2deg);
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes text-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes perspective {
+  from {
+    perspective: 100px;
+  }
+  to {
+    perspective: 300px;
+  }
+}
+
+@font-face {
+  font-family: "Segoe UI Web (West European)";
+  src: url("https://static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-westeuropean/segoeui-semibold.woff2")
+      format("woff2"),
+    url("https://static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-westeuropean/segoeui-semibold.woff")
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
